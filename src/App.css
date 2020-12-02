@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
+  width: 100%;
 }
 
 .App-logo {
@@ -24,15 +25,23 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.tab-list {  border-bottom: 1px solid #000000;
+  padding-left: 0;
+  width: 1400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #000000;
+  border-width: 0 0  3px   0 ;
+  color: black;
 }
