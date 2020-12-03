@@ -6,6 +6,7 @@ import edit from '../assets/icons/edit-icon.png';
  import AddModal from './Common/AddInvestorModal'
  import { Link  } from "react-router-dom";
   import { useQuery, gql } from '@apollo/client';
+  import loader from '../assets/loader/loader.gif';
 const GET_INVESTOR_DETAILS = gql`
   query GetInvestorDetails($investor_id: Int!) {
     investment(where: { investor_id:{_eq:  $investor_id} }) {
@@ -35,7 +36,7 @@ const styles = {
         color: '#4970F8'
     },
     homeMargin: {
-        margin: '35px'
+        margin: '35px 0px'
     },
     tabStyle: {
         marginTop: '20px',
@@ -66,7 +67,8 @@ const styles = {
         width: '60px'
     },
     blueColor: {
-        color: '#333FAD'
+        color: '#333FAD',
+        fontSize: '15px',
     },
     pointer: {
         cursor: 'pointer'
@@ -90,12 +92,11 @@ const styles = {
         textAlign: 'left'
 
     },
-    columnBorder:{
-        borderBottom: '1px solid #EEEEEE',
-      marginTop: '25px',
-    //   width: '80%',
-      textAlign: 'center',
-    }
+    // columnBorder:{
+    //     borderBottom: '1px solid #EEEEEE',
+    //   marginTop: '25px',
+    //   textAlign: 'center',
+    // }
 };
 
 function InvestorDetails(props) {
@@ -104,7 +105,7 @@ function InvestorDetails(props) {
     const details = useQuery(GET_INVESTOR_DETAILS, {
         variables: { investor_id: investorId },
     });
-    if (details.loading) return <p>Loading...</p>;
+    if (details.loading) return <span className="centerAligned"> <img src={loader} /> <p>loading....</p> </span>;
     if (details.error) return <p>Error :( {details.error.message}</p>;
     if (details.data.investment.length === 0) return <p>The database is empty!</p>
     const name = details.data.investment[0].investor.name;
@@ -124,54 +125,55 @@ function InvestorDetails(props) {
                 onHide={() => setModalShow(false)}
                 data ={details.data}
             />
-            <Container style={styles.homeMargin}>
+            <Container fluid style={styles.homeMargin}>
                 <Row>
-                    <Col style={styles.heading}><span style={styles.blueFont}>INVESTOR</span>BOOK</Col>
+                    <Col className="heading"><span style={styles.blueFont}>INVESTOR</span>BOOK</Col>
                 </Row>
             </Container>
-            <br /><br />
+            
             <Container fluid>
                 <Row >
-                    <Col lg={1} md={1} xs={1}><Link to='/Home'><img src={back} alt="back"  style={styles.pointer}/></Link> &nbsp;<img style={styles.thumbnail} src={avatar} alt="avatar" /></Col>
-                    <Col lg={3} md={3} xs={3} > <span style={styles.nameTag} >{name}</span> <br /> <span style={styles.subDetails}>Total Amount Invested: ${ totalInvestment()}</span></Col>
-                    <Col lg={4} md={4} xs={4}></Col>
-                    <Col lg={2} md={2} xs={2} style={styles.subDetails}><img src={edit} alt="edit" />&nbsp;EDIT NAME</Col>
-                    <Col lg={2} md={2} xs={2} style={styles.subDetails}><img src={remove} alt="remove" />&nbsp;REMOVE INVESTOR</Col>
+                    <Col lg={1} md={1} xs={5}><Link to='/Home'><img src={back} alt="back"  style={styles.pointer}/></Link> &nbsp;<img style={styles.thumbnail} src={avatar} alt="avatar" /></Col>
+                    <Col lg={3} md={3} xs={7} > <span style={styles.nameTag} className="MobileName" >{name}</span> <br /> <div style={styles.subDetails} className="mobileSubDetails noDisplay">Total Amount Invested: ${ totalInvestment()}</div></Col>
+                    <Col lg={4} md={4} xs={12}> <div style={styles.subDetails} className="mobileSubDetails showDisplay">Total Amount Invested: ${ totalInvestment()}</div></Col>
+                    <Col lg={2} md={2} xs={12} style={styles.subDetails} className="mobileSubDetails"><img src={edit} alt="edit" />&nbsp;EDIT NAME</Col>
+                    <Col lg={2} md={2} xs={12} style={styles.subDetails} className="mobileSubDetails"><img src={remove} alt="remove" />&nbsp;REMOVE INVESTOR</Col>
                 </Row>
                 <br /><br />
                 <Row >
-                    <Col lg={1} md={1} xs={1}  ></Col>
-                    <Col lg={1} md={1} xs={1} ><span style={styles.subDetails}>Investments</span></Col>
-                    <Col lg={2} md={2} xs={2} style={styles.pointer} ><span onClick={() => setModalShow(true)} style={styles.subDetails, styles.blueColor}>+ Add Investments
+                    <Col lg={1} md={1} xs={0}  ></Col>
+                    <Col lg={1} md={1} xs={6} ><span style={styles.subDetails}>Investments</span></Col>
+                    <Col lg={2} md={2} xs={6} style={styles.pointer} ><span onClick={() => setModalShow(true)}  style={ styles.blueColor}>+ Add Investments
                     
                     </span></Col>
                     <Col></Col>
                 </Row>
                 <br />
+                <Container>  
                 <Row style={styles.columnBorder}>
-                    <Col lg={1} md={1} xs={1} ></Col>
+               
                     <Col lg={4} md={4} xs={4} style={styles.tableRow}>NAME</Col>
-                    <Col lg={4} md={4} xs={4} style={styles.tableRow}>AMOUNT</Col>
-                    <Col lg={3} md={3} xs={3} style={styles.tableRow}> ACTIONS</Col>
+                    <Col lg={4} md={4} xs={4} style={styles.tableRow} className="centerText">AMOUNT</Col>
+                    <Col lg={4} md={4} xs={4} style={styles.tableRow} className="rightAligned"> ACTIONS</Col>
                     <br/><br/>
                 </Row>
-                 
-                 
+                 <hr/>
+                  
                  {
                     details.data.investment.map(({amount,company})=>(
-                        <Row style={styles.columnBorder}>
-                            <br/>
-                            <br/>
-                        <Col lg={1} md={1} xs={1} ></Col>
-                        <Col lg={4} md={4} xs={4} style={styles.tableColumn}>{company.name}</Col>
-                        <Col lg={4} md={4} xs={4} style={styles.tableColumn}>${amount}</Col>
-                        <Col lg={3} md={3} xs={3} style={styles.tableColumn}> <img src={edit} alt="edit" />&nbsp;&nbsp;<img src={remove} alt="remove" /></Col>
+                    <>
+                        <Row >
+                        <Col lg={4} md={4} xs={4} style={styles.tableColumn} >{company.name}</Col>
+                        <Col lg={4} md={4} xs={4} style={styles.tableColumn} className="centerText">${amount}</Col>
+                        <Col lg={4} md={4} xs={4} style={styles.tableColumn} className="rightAligned"> <img src={edit} alt="edit" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={remove} alt="remove" /></Col>
                         <br/>
                         <br/>
                     </Row>
+                    <hr />
+                    </>
                     ))
                     }
-                   
+                   </Container> 
                  
 
             </Container>

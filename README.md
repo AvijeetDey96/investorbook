@@ -4,7 +4,7 @@
 
 You can view a live demo of the webclient at:
 
-https://investorbook.herokuapp.com/
+https://5fc80f633377980008dc7eec--priceless-lalande-901e36.netlify.app/
 
 ## Postgress Access
 

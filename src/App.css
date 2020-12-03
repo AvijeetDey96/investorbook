@@ -29,7 +29,9 @@
 
 .tab-list {  border-bottom: 1px solid #000000;
   padding-left: 0;
-  width: 1400px;
+  width: 100%;
+  /* width: 1400px; */
+  
 }
 
 .tab-list-item {
@@ -44,4 +46,105 @@
   border: solid #000000;
   border-width: 0 0  3px   0 ;
   color: black;
+}
+.modal-content {
+  padding: 15px;
+}
+.custom-select{
+  border-radius: 0;
+  background:none;
+}
+.form-control{
+  border-radius: 0;
+  background:none;
+}
+.solid {
+  margin: 0 -15px;
+  border: 0;
+  border-top: 1px solid red;
+}
+.centerAligned {
+  text-align: center; 
+  display: block;
+  margin: 0 auto;
+}
+.name{
+font-size: 28px;
+font-style: normal;
+font-weight: 500;
+line-height: 26px;
+letter-spacing: 0em;
+text-align: left;
+color: #000000
+}
+.heading{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.18em;
+  text-align: left;
+  padding-left: 45px;
+}
+.showDisplay{
+  display: none;
+}
+.rightAligned{
+  text-align: right !important;
+}
+.centerText{
+  text-align: center !important;
+}
+@media screen and (max-width: 600px) {
+  
+  .centerAligned {
+    display: none;
+  }
+  .noDisplay{
+    display: none;
+  }
+  .showDisplay{
+    display: block;
+    text-align:center;
+  }
+  .name{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000
+    }
+    .responsiveAdd{
+      font-size: 12px;
+    padding: 4px !important;
+    }
+    .noSpace{
+      padding: 0px !important;
+     
+    }
+    .centered {
+      text-align: center;
+      padding: 0px ;
+    }
+    .heading{
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 18px;
+      letter-spacing: 0.18em;
+      text-align: center;
+      padding-left:0px;
+
+    }
+    .MobileName{
+      font-size: 21px!important;
+    }    
+    .mobileSubDetails{
+      font-size: 14px!important;
+      text-align: center;
+      padding: 10px
+    }
+  
 }

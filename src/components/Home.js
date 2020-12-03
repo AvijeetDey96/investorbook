@@ -4,18 +4,12 @@ import Investors from './Investors'
 import Companies from './Companies'
 import Tabs from "../components/Tabs/Tabs";
 const styles = {
-    heading: {
-        fontStyle: 'normal',
-        fontWeight: 'bold',
-        fontSize: '20px',
-        lineHeight: '18px',
-        letterSpacing: '0.18em',
-    },
+   
     blueFont: {
         color: '#4970F8'
     },
     homeMargin: {
-        margin: '35px'
+        margin: '35px 0px'
     },
     tabStyle: {
         marginTop: '20px',
@@ -34,13 +28,13 @@ const styles = {
 function Home(props) {
     return (
 
-        <Container style={styles.homeMargin}>
+        <Container fluid style={styles.homeMargin} >
             <Row>
-                <Col style={styles.heading}><span style={styles.blueFont}>INVESTOR</span>BOOK</Col>
+                <Col className="heading"><span style={styles.blueFont}>INVESTOR</span>BOOK</Col>
             </Row>
             <Row style={styles.tabStyle}>
                 <Tabs >
-                    <div label="Investors">
+                    <div label="Investors">  
                         <Investors />
                     </div>
                     <div label="Companies">

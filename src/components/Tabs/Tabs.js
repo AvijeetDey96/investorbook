@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Tab from './Tab';
+import { Container, Row, Col } from 'react-bootstrap';
 
 class Tabs extends Component {
     static propTypes = {
         children: PropTypes.instanceOf(Array).isRequired,
-      }
-    
-      constructor(props) {
+    }
+
+    constructor(props) {
         super(props);
-    
+
         this.state = {
-          activeTab: this.props.children[0].props.label,
+            activeTab: this.props.children[0].props.label,
         };
-      }
-    
-      onClickTabItem = (tab) => {
+    }
+
+    onClickTabItem = (tab) => {
         this.setState({ activeTab: tab });
-      }
+    }
     render() {
         const {
             onClickTabItem,
@@ -29,9 +30,14 @@ class Tabs extends Component {
             }
         } = this;
 
-        return (
-            <div className="tabs">
-                <ol className="tab-list">
+        return (<> 
+
+            <Container fluid >
+                <Row>
+                    <Col xs={12}>
+                    
+                    <div className="tabs">
+                <ol className="tab-list ">
                     {children.map((child) => {
                         const { label } = child.props;
 
@@ -52,6 +58,12 @@ class Tabs extends Component {
                     })}
                 </div>
             </div>
+            
+                    </Col>
+                </Row>
+            </Container>
+            
+        </>
         );
     }
 }
