@@ -4,8 +4,7 @@
 
 You can view a live demo of the webclient at:
 
-https://5fc80f633377980008dc7eec--priceless-lalande-901e36.netlify.app/
-
+https://investorbook-avijeet.netlify.app/
 ## Postgress Access
 
 You can use this URI to connect to Postgres directly:
@@ -40,3 +39,9 @@ heroku git:remote -a {your_app_name}
 heroku buildpacks:set marks/create-react-app
 git push heroku master
 ```
+
+```````
+live demo link : https://investorbook-avijeet.netlify.app/
+
+recorded features link : https://www.loom.com/share/3aa2ac30a95e4045bd087d6963436605
+

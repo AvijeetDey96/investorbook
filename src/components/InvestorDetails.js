@@ -149,7 +149,7 @@ function InvestorDetails(props) {
                     <Col></Col>
                 </Row>
                 <br />
-                <Container>  
+                <Container className="leftMargin">  
                 <Row style={styles.columnBorder}>
                
                     <Col lg={4} md={4} xs={4} style={styles.tableRow}>NAME</Col>

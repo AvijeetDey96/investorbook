@@ -95,6 +95,9 @@ color: #000000
 .centerText{
   text-align: center !important;
 }
+.leftMargin{
+  margin-left: 112px;
+}
 @media screen and (max-width: 600px) {
   
   .centerAligned {
@@ -145,6 +148,9 @@ color: #000000
       font-size: 14px!important;
       text-align: center;
       padding: 10px
+    }
+    .leftMargin{
+      margin-left: 0px;
     }
   
 }
