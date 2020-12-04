@@ -131,19 +131,19 @@ function InvestorDetails(props) {
                 </Row>
             </Container>
             
-            <Container fluid>
+            <Container fluid >
                 <Row >
-                    <Col lg={1} md={1} xs={5}><Link to='/Home'><img src={back} alt="back"  style={styles.pointer}/></Link> &nbsp;<img style={styles.thumbnail} src={avatar} alt="avatar" /></Col>
-                    <Col lg={3} md={3} xs={7} > <span style={styles.nameTag} className="MobileName" >{name}</span> <br /> <div style={styles.subDetails} className="mobileSubDetails noDisplay">Total Amount Invested: ${ totalInvestment()}</div></Col>
-                    <Col lg={4} md={4} xs={12}> <div style={styles.subDetails} className="mobileSubDetails showDisplay">Total Amount Invested: ${ totalInvestment()}</div></Col>
+                    <Col lg={2} md={5} xs={5} ><Link to='/Home'><img src={back} alt="back"  style={styles.pointer}/></Link> &nbsp;<img style={styles.thumbnail} src={avatar} alt="avatar" /></Col>
+                    <Col lg={3} md={7} xs={7} className="nameHeadingPosition"> <span style={styles.nameTag} className="MobileName" >{name}</span> <br /> <div style={styles.subDetails} className="mobileSubDetails noDisplay">Total Amount Invested: ${ totalInvestment()}</div></Col>
+                    <Col lg={3} md={12} xs={12}> <div style={styles.subDetails} className="mobileSubDetails showDisplay">Total Amount Invested: ${ totalInvestment()}</div></Col>
                     <Col lg={2} md={2} xs={12} style={styles.subDetails} className="mobileSubDetails"><img src={edit} alt="edit" />&nbsp;EDIT NAME</Col>
                     <Col lg={2} md={2} xs={12} style={styles.subDetails} className="mobileSubDetails"><img src={remove} alt="remove" />&nbsp;REMOVE INVESTOR</Col>
                 </Row>
                 <br /><br />
                 <Row >
                     <Col lg={1} md={1} xs={0}  ></Col>
-                    <Col lg={1} md={1} xs={6} ><span style={styles.subDetails}>Investments</span></Col>
-                    <Col lg={2} md={2} xs={6} style={styles.pointer} ><span onClick={() => setModalShow(true)}  style={ styles.blueColor}>+ Add Investments
+                    <Col lg={1} md={6} xs={6} ><span style={styles.subDetails}>Investments</span></Col>
+                    <Col lg={2} md={6} xs={6} style={styles.pointer} ><span onClick={() => setModalShow(true)}  style={ styles.blueColor}>+ Add Investments
                     
                     </span></Col>
                     <Col></Col>

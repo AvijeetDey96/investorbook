@@ -98,6 +98,24 @@ color: #000000
 .leftMargin{
   margin-left: 112px;
 }
+.nameHeadingPosition{
+  margin-left: -134px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1280px) { 
+      .nameHeadingPosition{
+        margin-left: -106px;
+        margin-top: 9px;
+      }
+    }
+@media screen and (max-width: 720px) {
+  .nameHeadingPosition{
+    margin-left: -100px;
+    margin-top: 5px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   
   .centerAligned {
@@ -151,6 +169,10 @@ color: #000000
     }
     .leftMargin{
       margin-left: 0px;
+    }
+    .nameHeadingPosition{
+      margin-left: 0px;
+      margin-top: 5px;
     }
   
 }
